@@ -40,7 +40,13 @@
                                 <rect key="frame" x="263" y="261" width="74" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="byP-k1-zpX"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="h6c-NK-M4X">
+                                <rect key="frame" x="351" y="275" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -52,10 +58,17 @@
                             <constraint firstItem="EhM-zF-AMr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KxA-Bp-INF"/>
                             <constraint firstItem="yS3-bY-NuR" firstAttribute="top" secondItem="cYY-JI-Jf7" secondAttribute="bottom" constant="8" id="NlI-cm-cU0"/>
                             <constraint firstItem="EhM-zF-AMr" firstAttribute="top" secondItem="yS3-bY-NuR" secondAttribute="bottom" constant="22" id="UBI-Gv-asn"/>
+                            <constraint firstItem="h6c-NK-M4X" firstAttribute="leading" secondItem="EhM-zF-AMr" secondAttribute="trailing" constant="14" id="c2a-aT-ZfK"/>
                             <constraint firstItem="TTA-cV-bGL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="69" id="fW4-xo-RcU"/>
                             <constraint firstItem="cYY-JI-Jf7" firstAttribute="top" secondItem="TTA-cV-bGL" secondAttribute="bottom" constant="31" id="nnE-ej-sy6"/>
+                            <constraint firstItem="h6c-NK-M4X" firstAttribute="top" secondItem="yS3-bY-NuR" secondAttribute="bottom" constant="36" id="rnj-Ly-enO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="cYY-JI-Jf7" id="sDF-ZW-5DO"/>
+                        <outlet property="loadingActivityIndicator" destination="h6c-NK-M4X" id="I3O-LU-ka8"/>
+                        <outlet property="passwordTextField" destination="yS3-bY-NuR" id="hBj-Af-7yW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
