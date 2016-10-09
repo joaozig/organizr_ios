@@ -16,6 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="aiW-Oq-DEY">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organizr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkF-Yk-eAh">
                                 <rect key="frame" x="219" y="276" width="163" height="48"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
@@ -23,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90853619575500488" green="0.96039086580276489" blue="0.98259562253952026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KkF-Yk-eAh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="h5H-YH-OsE"/>
                             <constraint firstItem="KkF-Yk-eAh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xGH-gh-0UQ"/>
@@ -35,4 +38,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultBackground" width="175" height="310"/>
+    </resources>
 </document>
