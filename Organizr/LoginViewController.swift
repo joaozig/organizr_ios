@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import KeychainSwift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -26,7 +27,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
-    
+
     // MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -37,43 +38,49 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
             loginButtonTapped(loginButton)
         }
-
+        
         return true
     }
-
+    
     // MARK: Actions
-
+    
     @IBAction func loginButtonTapped(sender: UIButton) {
         loadingIndicator.startAnimating()
-
+        
         let email = emailTextField.text!
         let password = passwordTextField.text!
         let body = ["session" : ["email":email, "password": password]]
-
+        
         let url = NSURL(string: "http://192.168.0.12:3000/sessions")
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-type")
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
-
+        
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
-
+            
             // this code runs asynchronously...
             var errorMessage: String?
-
+            
             if error != nil {
                 errorMessage = "Something is going wrong with the server. Please try again later."
             } else {
                 if let httpResponse = response as? NSHTTPURLResponse {
                     if httpResponse.statusCode == 200 {
-                        print("logged in")
+                        if let user = try! NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                            let keychain = KeychainSwift()
+                            keychain.set(String(user["auth_token"]!), forKey: "username")
+                            dispatch_async(dispatch_get_main_queue()) {
+                                self.performSegueWithIdentifier("loginSegue", sender: self)
+                            }
+                        }
                     } else {
                         errorMessage = "Invalid e-mail or password. Please try again."
                     }
                 }
             }
-
+            
             if errorMessage != nil {
                 dispatch_async(dispatch_get_main_queue()) {
                     let alertController = UIAlertController(title: "Could not sign in", message: errorMessage!, preferredStyle: UIAlertControllerStyle.Alert)
@@ -82,7 +89,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.presentViewController(alertController, animated: true, completion: nil)
                 }
             }
-            
+
             dispatch_async(dispatch_get_main_queue()) {
                 self.loadingIndicator.stopAnimating()
             }
@@ -90,15 +97,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         task.resume()
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

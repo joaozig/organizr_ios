@@ -1,12 +1,15 @@
 PODS:
   - IQKeyboardManagerSwift (4.0.5)
+  - KeychainSwift (3.0.16)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift (= 4.0.5)
+  - KeychainSwift (~> 3.0)
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 41fd3a45a2cdb2a0e031af697708a95b865068a1
+  KeychainSwift: a5bb85cd498ce2217b55e055ec59e9268d83384c
 
-PODFILE CHECKSUM: 6caf46fef8e634054f1bfcf7c687d2d0493e0f6a
+PODFILE CHECKSUM: 81f9fcf3ba4a8197062fc3a54b67ce2d16f58080
 
 COCOAPODS: 1.0.1

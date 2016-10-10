@@ -8,7 +8,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Organizr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Organizr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -69,11 +69,57 @@
                         <outlet property="loadingIndicator" destination="h6c-NK-M4X" id="jZb-SH-9o8"/>
                         <outlet property="loginButton" destination="EhM-zF-AMr" id="w63-jI-qy5"/>
                         <outlet property="passwordTextField" destination="yS3-bY-NuR" id="hBj-Af-7yW"/>
+                        <segue destination="aI1-vA-kGD" kind="show" identifier="loginSegue" id="c8f-T9-eZn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="321"/>
+            <point key="canvasLocation" x="342" y="528"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="2fs-ph-o61">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="aI1-vA-kGD" customClass="MainViewController" customModule="Organizr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xWU-FS-8Tq"/>
+                        <viewControllerLayoutGuide type="bottom" id="ssJ-BG-yLO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9vE-rg-Thc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RK-eF-1bV">
+                                <rect key="frame" x="20" y="99" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flz-BR-s9p">
+                                <rect key="frame" x="269" y="282" width="63" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="aI1-vA-kGD" eventType="touchUpInside" id="EKb-K5-qy1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4RK-eF-1bV" firstAttribute="trailing" secondItem="9vE-rg-Thc" secondAttribute="trailingMargin" id="7U3-kh-HW1"/>
+                            <constraint firstItem="4RK-eF-1bV" firstAttribute="top" secondItem="xWU-FS-8Tq" secondAttribute="bottom" constant="79" id="FBC-cr-y2C"/>
+                            <constraint firstItem="Flz-BR-s9p" firstAttribute="centerY" secondItem="9vE-rg-Thc" secondAttribute="centerY" id="ebB-xx-aYX"/>
+                            <constraint firstItem="Flz-BR-s9p" firstAttribute="centerX" secondItem="9vE-rg-Thc" secondAttribute="centerX" id="fjs-cJ-tlp"/>
+                            <constraint firstItem="4RK-eF-1bV" firstAttribute="leading" secondItem="9vE-rg-Thc" secondAttribute="leadingMargin" id="x2g-Il-pV2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logoutButton" destination="Flz-BR-s9p" id="ihF-3y-BdG"/>
+                        <outlet property="usernameLabel" destination="4RK-eF-1bV" id="e4N-S5-Hwv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d04-M8-oTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1096" y="528"/>
         </scene>
     </scenes>
     <resources>

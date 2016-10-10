@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import KeychainSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         IQKeyboardManager.sharedManager().enable = true
+
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        if KeychainSwift().get("username") != nil {
+            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController")
+        }
         
         return true
     }

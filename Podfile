@@ -7,4 +7,5 @@ target 'Organizr' do
 
   # Pods for Organizr
   pod 'IQKeyboardManagerSwift', '4.0.5'
+  pod 'KeychainSwift', '~> 3.0'
 end
