@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
     
@@ -20,8 +21,24 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        if textField == emailTextField {
+            IQKeyboardManager.sharedManager().goNext()
+        } else {
+            textField.resignFirstResponder()
+        }
+
+        return true
+    }
+
     // MARK: Actions
     
     @IBAction func loginButtonTapped(sender: UIButton) {
