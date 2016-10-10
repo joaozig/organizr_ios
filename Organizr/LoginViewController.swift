@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     // MARK: Initialization
@@ -34,13 +35,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             IQKeyboardManager.sharedManager().goNext()
         } else {
             textField.resignFirstResponder()
+            loginButtonTapped(loginButton)
         }
 
         return true
     }
 
     // MARK: Actions
-    
+
     @IBAction func loginButtonTapped(sender: UIButton) {
         loadingIndicator.startAnimating()
 
