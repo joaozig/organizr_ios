@@ -125,6 +125,9 @@
                                 <rect key="frame" x="247" y="280" width="106" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpButtonTapped:" destination="6Bz-uU-6DD" eventType="touchUpInside" id="tDE-an-vbF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qM1-UW-wNF">
                                 <rect key="frame" x="532" y="28" width="48" height="30"/>
@@ -134,9 +137,13 @@
                                     <action selector="closeViewController:" destination="6Bz-uU-6DD" eventType="touchUpInside" id="m24-PN-o7f"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TA7-M8-0kK">
+                                <rect key="frame" x="361" y="294" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TA7-M8-0kK" firstAttribute="leading" secondItem="C5O-vy-vjr" secondAttribute="trailing" constant="8" id="11M-1V-JWW"/>
                             <constraint firstItem="GWc-hQ-k8V" firstAttribute="centerX" secondItem="ZlT-9V-h1w" secondAttribute="centerX" id="1he-6T-FzQ"/>
                             <constraint firstItem="dOs-nb-TXr" firstAttribute="top" secondItem="HU1-MO-soF" secondAttribute="bottom" constant="8" id="71h-Tt-k5A"/>
                             <constraint firstItem="dOs-nb-TXr" firstAttribute="leading" secondItem="ZlT-9V-h1w" secondAttribute="leadingMargin" id="Apl-c4-hnM"/>
@@ -149,6 +156,7 @@
                             <constraint firstItem="dOs-nb-TXr" firstAttribute="centerX" secondItem="ZlT-9V-h1w" secondAttribute="centerX" id="Vt3-cx-3Hq"/>
                             <constraint firstItem="Kmr-mO-4oO" firstAttribute="centerX" secondItem="ZlT-9V-h1w" secondAttribute="centerX" id="YMR-Z8-bJI"/>
                             <constraint firstItem="GWc-hQ-k8V" firstAttribute="top" secondItem="JHE-cM-Xxq" secondAttribute="bottom" constant="57" id="agz-U2-bu6"/>
+                            <constraint firstItem="TA7-M8-0kK" firstAttribute="top" secondItem="Kmr-mO-4oO" secondAttribute="bottom" constant="43" id="cfi-Jf-GCf"/>
                             <constraint firstItem="HU1-MO-soF" firstAttribute="centerX" secondItem="ZlT-9V-h1w" secondAttribute="centerX" id="hJO-hO-yzv"/>
                             <constraint firstItem="qM1-UW-wNF" firstAttribute="top" secondItem="JHE-cM-Xxq" secondAttribute="bottom" constant="8" id="iw9-j5-DQT"/>
                             <constraint firstItem="qM1-UW-wNF" firstAttribute="trailing" secondItem="ZlT-9V-h1w" secondAttribute="trailingMargin" id="rnJ-e1-tXJ"/>
@@ -160,7 +168,10 @@
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="Kmr-mO-4oO" id="ywB-D5-tyA"/>
                         <outlet property="emailTextField" destination="HU1-MO-soF" id="RLi-hB-xgf"/>
+                        <outlet property="loadingIndicator" destination="TA7-M8-0kK" id="igx-iU-EU8"/>
                         <outlet property="passwordTextField" destination="dOs-nb-TXr" id="oS3-SJ-R7E"/>
+                        <outlet property="signUpButton" destination="C5O-vy-vjr" id="cGJ-8Y-Vfw"/>
+                        <segue destination="aI1-vA-kGD" kind="show" identifier="loginFromSignUpSegue" id="afe-hF-r4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Hc-9Q-MQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -210,10 +221,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d04-M8-oTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096" y="528"/>
+            <point key="canvasLocation" x="1058" y="888"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultBackground" width="175" height="310"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="afe-hF-r4c"/>
+    </inferredMetricsTieBreakers>
 </document>
