@@ -25,6 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController")
         }
         
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.tintColor = UIColor.whiteColor();
+        navigationBarAppearance.barTintColor = UIColor(rgba: "#930031");
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        navigationBarAppearance.barStyle = .BlackTranslucent
+
         return true
     }
 
