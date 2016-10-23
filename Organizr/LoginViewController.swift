@@ -41,28 +41,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
-    
+
     // MARK: Actions
-    
+
     @IBAction func loginButtonTapped(sender: UIButton) {
         loadingIndicator.startAnimating()
-        
-        let email = emailTextField.text!
-        let password = passwordTextField.text!
-        let body = ["session" : ["email":email, "password": password]]
-        
-        let url = NSURL(string: "http://192.168.0.12:3000/sessions")
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-type")
-        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
-        
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            
-            // this code runs asynchronously...
+
+        let body = ["session": ["email": emailTextField.text!, "password": passwordTextField.text!]]
+        let params = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
+
+        HttpService().postRequest(ApiUrl.Sessions, params: params) { (data, response, error) in
+
             var errorMessage: String?
-            
+
             if error != nil {
                 errorMessage = "Something is going wrong with the server. Please try again later."
             } else {
@@ -94,7 +85,5 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.loadingIndicator.stopAnimating()
             }
         }
-        
-        task.resume()
     }
 }

@@ -52,17 +52,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let password = passwordTextField.text!
         let confirmPassword = confirmPasswordTextField.text!
         let body = ["user" : ["email":email, "password": password, "password_confirmation": confirmPassword]]
-        
-        let url = NSURL(string: "http://192.168.0.12:3000/users")
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-type")
-        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
-        
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+        let params = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
+
+        HttpService().postRequest(ApiUrl.Users, params: params) { (data, response, error) in
             
-            // this code runs asynchronously...
             var errorMessage: String?
             
             if error != nil {
@@ -106,9 +99,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 self.loadingIndicator.stopAnimating()
             }
         }
-        
-        task.resume()
-        
     }
     
     @IBAction func closeViewController(sender: AnyObject) {

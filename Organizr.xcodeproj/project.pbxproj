@@ -14,6 +14,8 @@
 		0790CA3A1DA952CE00DC56A8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0790CA391DA952CE00DC56A8 /* LoginViewController.swift */; };
 		079887C51DABBD7100369423 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079887C41DABBD7100369423 /* MainViewController.swift */; };
 		079887C91DAD2BA000369423 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079887C81DAD2BA000369423 /* SignUpViewController.swift */; };
+		07A7DDB31DBC28A400F830DC /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7DDB21DBC28A400F830DC /* HttpService.swift */; };
+		07A7DDB51DBC347C00F830DC /* ApiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7DDB41DBC347C00F830DC /* ApiUrl.swift */; };
 		5D9A967E1C1CEDAD44A97046 /* Pods_Organizr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0A8D986C79FA2833C17E3 /* Pods_Organizr.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		0790CA391DA952CE00DC56A8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		079887C41DABBD7100369423 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		079887C81DAD2BA000369423 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		07A7DDB21DBC28A400F830DC /* HttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
+		07A7DDB41DBC347C00F830DC /* ApiUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiUrl.swift; sourceTree = "<group>"; };
 		98A945E602BC671E500478C1 /* Pods-Organizr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Organizr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Organizr/Pods-Organizr.release.xcconfig"; sourceTree = "<group>"; };
 		A84FFB6C8A5B07B827C03733 /* Pods-Organizr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Organizr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Organizr/Pods-Organizr.debug.xcconfig"; sourceTree = "<group>"; };
 		FFD0A8D986C79FA2833C17E3 /* Pods_Organizr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Organizr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,9 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				0790CA2A1DA94D8F00DC56A8 /* Main.storyboard */,
-				079887C81DAD2BA000369423 /* SignUpViewController.swift */,
-				079887C41DABBD7100369423 /* MainViewController.swift */,
-				0790CA391DA952CE00DC56A8 /* LoginViewController.swift */,
+				07A7DDB61DBC36DF00F830DC /* View Controllers */,
+				07A7DDB71DBC36F700F830DC /* Services */,
 				0790CA381DA9512A00DC56A8 /* Supporting Files */,
 			);
 			path = Organizr;
@@ -77,12 +80,31 @@
 		0790CA381DA9512A00DC56A8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07A7DDB41DBC347C00F830DC /* ApiUrl.swift */,
 				0790CA261DA94D8F00DC56A8 /* AppDelegate.swift */,
 				0790CA2D1DA94D8F00DC56A8 /* Assets.xcassets */,
 				0790CA2F1DA94D8F00DC56A8 /* LaunchScreen.storyboard */,
 				0790CA321DA94D8F00DC56A8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		07A7DDB61DBC36DF00F830DC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				079887C81DAD2BA000369423 /* SignUpViewController.swift */,
+				079887C41DABBD7100369423 /* MainViewController.swift */,
+				0790CA391DA952CE00DC56A8 /* LoginViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		07A7DDB71DBC36F700F830DC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				07A7DDB21DBC28A400F830DC /* HttpService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		94BD0BC85ED8B6E548116950 /* Frameworks */ = {
@@ -227,8 +249,10 @@
 			files = (
 				079887C51DABBD7100369423 /* MainViewController.swift in Sources */,
 				0790CA3A1DA952CE00DC56A8 /* LoginViewController.swift in Sources */,
+				07A7DDB51DBC347C00F830DC /* ApiUrl.swift in Sources */,
 				079887C91DAD2BA000369423 /* SignUpViewController.swift in Sources */,
 				0790CA271DA94D8F00DC56A8 /* AppDelegate.swift in Sources */,
+				07A7DDB31DBC28A400F830DC /* HttpService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
