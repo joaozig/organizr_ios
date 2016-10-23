@@ -78,7 +78,7 @@
                         <outlet property="loadingIndicator" destination="h6c-NK-M4X" id="jZb-SH-9o8"/>
                         <outlet property="loginButton" destination="EhM-zF-AMr" id="w63-jI-qy5"/>
                         <outlet property="passwordTextField" destination="yS3-bY-NuR" id="hBj-Af-7yW"/>
-                        <segue destination="aI1-vA-kGD" kind="show" identifier="loginSegue" id="c8f-T9-eZn"/>
+                        <segue destination="eXf-JO-Y29" kind="show" identifier="loginSegue" id="7VH-8q-hgw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -171,63 +171,74 @@
                         <outlet property="loadingIndicator" destination="TA7-M8-0kK" id="igx-iU-EU8"/>
                         <outlet property="passwordTextField" destination="dOs-nb-TXr" id="oS3-SJ-R7E"/>
                         <outlet property="signUpButton" destination="C5O-vy-vjr" id="cGJ-8Y-Vfw"/>
-                        <segue destination="aI1-vA-kGD" kind="show" identifier="loginFromSignUpSegue" id="afe-hF-r4c"/>
+                        <segue destination="eXf-JO-Y29" kind="show" identifier="loginSegue" id="cqz-eB-gAM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Hc-9Q-MQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="342" y="1315"/>
         </scene>
-        <!--Main View Controller-->
-        <scene sceneID="2fs-ph-o61">
+        <!--Lists-->
+        <scene sceneID="lmk-jL-Eo1">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="aI1-vA-kGD" customClass="MainViewController" customModule="Organizr" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xWU-FS-8Tq"/>
-                        <viewControllerLayoutGuide type="bottom" id="ssJ-BG-yLO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9vE-rg-Thc">
+                <tableViewController storyboardIdentifier="ListsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VJH-xW-7A8" customClass="ListsViewController" customModule="Organizr" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LPR-H8-EoK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RK-eF-1bV">
-                                <rect key="frame" x="20" y="99" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flz-BR-s9p">
-                                <rect key="frame" x="269" y="282" width="63" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutButtonTapped:" destination="aI1-vA-kGD" eventType="touchUpInside" id="EKb-K5-qy1"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="4RK-eF-1bV" firstAttribute="trailing" secondItem="9vE-rg-Thc" secondAttribute="trailingMargin" id="7U3-kh-HW1"/>
-                            <constraint firstItem="4RK-eF-1bV" firstAttribute="top" secondItem="xWU-FS-8Tq" secondAttribute="bottom" constant="79" id="FBC-cr-y2C"/>
-                            <constraint firstItem="Flz-BR-s9p" firstAttribute="centerY" secondItem="9vE-rg-Thc" secondAttribute="centerY" id="ebB-xx-aYX"/>
-                            <constraint firstItem="Flz-BR-s9p" firstAttribute="centerX" secondItem="9vE-rg-Thc" secondAttribute="centerX" id="fjs-cJ-tlp"/>
-                            <constraint firstItem="4RK-eF-1bV" firstAttribute="leading" secondItem="9vE-rg-Thc" secondAttribute="leadingMargin" id="x2g-Il-pV2"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="logoutButton" destination="Flz-BR-s9p" id="ihF-3y-BdG"/>
-                        <outlet property="usernameLabel" destination="4RK-eF-1bV" id="e4N-S5-Hwv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d04-M8-oTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCellIdentifier" textLabel="Zzc-fU-JFw" style="IBUITableViewCellStyleDefault" id="XgK-cL-u3s">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XgK-cL-u3s" id="lfb-hR-V0D">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zzc-fU-JFw">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VJH-xW-7A8" id="aAn-v4-J5r"/>
+                            <outlet property="delegate" destination="VJH-xW-7A8" id="ruD-Xe-y63"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Lists" id="Y9J-7L-xFs"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hpt-cf-DHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1058" y="888"/>
+            <point key="canvasLocation" x="1874" y="907"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MaE-wk-yHD">
+            <objects>
+                <navigationController storyboardIdentifier="MainViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eXf-JO-Y29" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v1B-6i-WZD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VJH-xW-7A8" kind="relationship" relationship="rootViewController" id="yZ5-vD-BJl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b1B-e6-dxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1062" y="907"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultBackground" width="175" height="310"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="afe-hF-r4c"/>
+        <segue reference="cqz-eB-gAM"/>
     </inferredMetricsTieBreakers>
 </document>
