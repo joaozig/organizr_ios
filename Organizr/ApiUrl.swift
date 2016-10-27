@@ -14,4 +14,5 @@ struct ApiUrl {
 
     static let Sessions = "\(BaseUrl)/sessions"
     static let Users = "\(BaseUrl)/users"
+    static let Lists = "\(BaseUrl)/lists"
 }
