@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
 
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        if KeychainSwift().get("username") != nil {
+        if KeychainSwift().get("authToken") != nil {
             self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController")
         }
 

@@ -61,7 +61,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     if httpResponse.statusCode == 200 {
                         if let user = try! NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                             let keychain = KeychainSwift()
-                            keychain.set(String(user["auth_token"]!), forKey: "username")
+                            keychain.set(String(user["auth_token"]!), forKey: "authToken")
                             dispatch_async(dispatch_get_main_queue()) {
                                 self.performSegueWithIdentifier("loginSegue", sender: self)
                             }

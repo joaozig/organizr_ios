@@ -15,9 +15,7 @@ class HttpService {
         let url = NSURL(string: url)
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "GET"
-        let keychain = KeychainSwift()
-        let auth_token = keychain.get("username")
-        request.addValue(auth_token!, forHTTPHeaderField: "Authentication")
+        request.addValue(KeychainSwift().get("authToken")!, forHTTPHeaderField: "Authentication")
         request.addValue("application/json", forHTTPHeaderField: "Content-type")
 
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
