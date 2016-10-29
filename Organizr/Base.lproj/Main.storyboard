@@ -212,7 +212,13 @@
                             <outlet property="delegate" destination="VJH-xW-7A8" id="ruD-Xe-y63"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Lists" id="Y9J-7L-xFs"/>
+                    <navigationItem key="navigationItem" title="Lists" id="Y9J-7L-xFs">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="V2Y-K0-ChI">
+                            <connections>
+                                <action selector="logoutButtonTapped:" destination="VJH-xW-7A8" id="Ul3-Oo-TiM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpt-cf-DHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

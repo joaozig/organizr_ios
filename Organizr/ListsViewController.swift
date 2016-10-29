@@ -51,10 +51,6 @@ class ListsViewController: UITableViewController {
     // MARK: Actions
     
     func loadLists() {
-        //        let list1 = List(id: 1, title: "Lista 1")
-        //        let list2 = List(id: 2, title: "Lista 2")
-        //        lists.append(list1)
-        //        lists.append(list2)
         
         HttpService().getRequest(ApiUrl.Lists) { (data, response, error) in
             
@@ -86,7 +82,7 @@ class ListsViewController: UITableViewController {
                     }
                 }
             }
-
+            
             if errorMessage != nil {
                 dispatch_async(dispatch_get_main_queue()) {
                     let alertController = UIAlertController(title: "Could not sign in", message: errorMessage!, preferredStyle: UIAlertControllerStyle.Alert)
@@ -96,5 +92,11 @@ class ListsViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func logoutButtonTapped(sender: UIBarButtonItem) {
+        KeychainSwift().delete("authToken")
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        UIApplication.sharedApplication().keyWindow?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
     }
 }
